@@ -1,0 +1,32 @@
+install.packages("glmnet")
+install.packages("mlbench")
+install.packages("psych")
+library(glmnet)
+library(mlbench)
+library(psych)
+data = Features_TestSet
+str(data)
+plot()
+set.seed(222)
+ind <- sample(2, nrow(data), replace = T, prob = c(0.7, 0.3))
+train <- data[ind==1,]
+test <- data[ind==2,]
+set.seed(1234)
+custom <- trainControl(method = "---",
+                       number = ---,
+                       repeats = 5,
+                       verboseIter = T)
+#ridge regression
+ridge = train()
+plot(lasso)
+plot(lasso$finalModel, xvar = 'lambda', label=T)
+
+# Elastic Net Regression
+set.seed(1234)
+en <- train(---)
+
+# Plot Results
+plot(en)
+plot(en$finalModel, xvar = 'lambda', label=T)
+plot(en$finalModel, xvar = 'dev', label=T)
+plot(varImp(en))
